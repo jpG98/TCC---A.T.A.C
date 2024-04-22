@@ -1,0 +1,14 @@
+.wrapper{
+    height: 300vh;
+    background-color: #77B28C;
+    margin-top: 0;
+    z-index: 0;
+}
+
+.wavehome{
+    margin-top: 65vh;
+    /*tem que ser absolute*/
+    position: absolute;
+    /*É 5 porque é como um sanduíche: vão coisas entre o wrapper e a onda*/
+    z-index: 5;
+}
