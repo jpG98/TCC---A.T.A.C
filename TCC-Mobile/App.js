@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions  } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
+const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
+
 
 const LoginScreen = () => {
   const [login, setLogin] = useState('');
@@ -58,7 +64,7 @@ const LoginScreen = () => {
       </LinearGradient>
       <View style={styles.circle}>
         <Image
-          source={require('./sua-imagem.png')} // Substitua 'sua-imagem.png' pelo caminho da sua imagem
+          source={require('../TCC-Mobile/assets/logoTCC3.png')} // Substitua 'sua-imagem.png' pelo caminho da sua imagem
           style={styles.image}
         />
       </View>
@@ -85,18 +91,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: 'rgba(1,1,1,0.4)',
     marginBottom: 20,
   },
   input: {
     width: '80%',
     height: 40,
     borderWidth: 1,
-    borderColor: '#ffffff',
+    borderColor: 'rgba(1,1,1,0.4)',
     borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(1,1,1,0.4)',
   },
   errorInput: {
     borderColor: 'red',
@@ -108,7 +114,7 @@ const styles = StyleSheet.create({
   button: {
     width: '80%',
     height: 40,
-    backgroundColor: '#2980b9',
+    backgroundColor: 'rgba(1,1,1,0.4)',
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
@@ -122,19 +128,20 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: 'rgba(255,255,255,0.3)', // Cor do círculo com opacidade de 30%
+    backgroundColor: 'rgba(255,255,255,0.2)', // Cor do círculo com opacidade de 30%
     position: 'absolute',
-    top: '50%', // Posiciona o círculo no meio verticalmente
+    top: '20%', // Posiciona o círculo no meio verticalmente
     left: '50%', // Posiciona o círculo no meio horizontalmente
     marginTop: -100, // Ajusta a margem superior para centralizar
     marginLeft: -100, // Ajusta a margem esquerda para centralizar
   },
   image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 100,
+    width: imageWidth,
+    height: imageHeight,
+    borderRadius: imageWidth / 2, // Para garantir que a imagem seja um círculo
     resizeMode: 'cover',
   },
+  
 });
 
 export default LoginScreen;

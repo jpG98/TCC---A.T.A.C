@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "expo": "~50.0.14",
+    "expo-linear-gradient": "^12.7.2",
     "expo-status-bar": "~1.11.1",
+    "from": "^0.1.7",
     "react": "18.2.0",
-    "react-native": "0.73.6"
+    "react-native": "0.73.6",
+    "react-native-dimensions": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
