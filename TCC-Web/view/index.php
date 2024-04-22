@@ -1,9 +1,7 @@
 <?php include("blades/top.php"); ?>
 
 <div class="wrapper">
-    <div>
-        
-    </div>
+    <img class="wavehome"src="src/wave.svg">
 </div>
 
 <?php include("blades/footer.php"); ?>
