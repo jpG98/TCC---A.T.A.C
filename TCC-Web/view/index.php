@@ -1,5 +1,9 @@
 <?php include("blades/top.php"); ?>
 
-    ATAC, TCC 
+<div class="wrapper">
+    <div>
+        
+    </div>
+</div>
 
 <?php include("blades/footer.php"); ?>
