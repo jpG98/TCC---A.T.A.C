@@ -64,7 +64,7 @@ const LoginScreen = () => {
       </LinearGradient>
       <View style={styles.circle}>
         <Image
-          source={require('../TCC-Mobile/assets/logoTCC3.png')} // Substitua 'sua-imagem.png' pelo caminho da sua imagem
+          source={require('../TCC-Mobile/assets/logoTCC3.png')} // logo 
           style={styles.image}
         />
       </View>
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: 'rgba(255,255,255,0.2)', // Cor do círculo com opacidade de 30%
+    backgroundColor: 'rgba(1,1,1,0.4))', // Cor do círculo com opacidade de 30%
     position: 'absolute',
     top: '20%', // Posiciona o círculo no meio verticalmente
     left: '50%', // Posiciona o círculo no meio horizontalmente
