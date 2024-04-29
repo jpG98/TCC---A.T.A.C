@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView,Stack } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import cadastro from './src/telas/cadastro';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -64,6 +69,8 @@ const LoginScreen = () => {
           </TouchableOpacity>
 
           <Text style={styles.botaocadastro}>Não Possui Cadastro?</Text>
+
+          <NavigationContainer><Stack.Screen name="cadastro" component={cadastro}></Stack.Screen> </NavigationContainer>
 
         </View>
       </LinearGradient>
