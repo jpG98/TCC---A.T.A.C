@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions  } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
 const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
-
 
 const LoginScreen = () => {
   const [login, setLogin] = useState('');
@@ -29,16 +28,19 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <LinearGradient
-        colors={['#77B28C','#F9E9C1']}
+        colors={['#77B28C', '#F9E9C1']}
         style={styles.background}>
         <View style={styles.overlay}>
-          
-          <Text style={styles.title}>Mude o Mundo</Text>
+
+          <Text style={styles.title}>Mude o Mundo.</Text>
+
+          <Text style={styles.subtitle}>Começa por Você.</Text>
+
           <TextInput
             placeholder="Login"
-            style={[styles.input, loginError && styles.errorInput]}
+            style={[styles.input, loginError && styles.errorInput, styles.Textobranco]} // Adicionando estilo para o texto branco
             value={login}
             onChangeText={text => {
               setLogin(text);
@@ -48,7 +50,7 @@ const LoginScreen = () => {
           {loginError && <Text style={styles.errorText}>Campo obrigatório</Text>}
           <TextInput
             placeholder="Senha"
-            style={[styles.input, senhaError && styles.errorInput]}
+            style={[styles.input, senhaError && styles.errorInput, styles.Textobranco]} // Adicionando estilo para o texto branco
             secureTextEntry={true}
             value={senha}
             onChangeText={text => {
@@ -57,9 +59,12 @@ const LoginScreen = () => {
             }}
           />
           {senhaError && <Text style={styles.errorText}>Campo obrigatório</Text>}
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Login</Text>
+          <TouchableOpacity style={styles.buttonEntrar} onPress={handleLogin}>
+            <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
+
+          <Text style={styles.botaocadastro}>Não Possui Cadastro?</Text>
+
         </View>
       </LinearGradient>
       <View style={styles.circle}>
@@ -68,11 +73,14 @@ const LoginScreen = () => {
           style={styles.image}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
   },
@@ -88,12 +96,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    fontSize: 24,
+  title: {//titulo
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'rgba(1,1,1,0.4)',
+    marginBottom: 3,
+  },
+  subtitle: { //subtitulo
+    fontSize: 23,
     fontWeight: 'bold',
     color: 'rgba(1,1,1,0.4)',
     marginBottom: 20,
+
   },
+  botaocadastro: { //subtitulo
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'rgba(1,1,1,0.4)',
+    marginTop: 9,
+
+  },
+  buttonEntrar: { //subtitulo
+    width: '40%',
+    height: 40,
+    backgroundColor: 'rgba(1,1,1,0.4)',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+
+
   input: {
     width: '80%',
     height: 40,
@@ -102,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
-    backgroundColor: 'rgba(1,1,1,0.4)',
+    backgroundColor: 'rgba(1,0,1,0.4)',
   },
   errorInput: {
     borderColor: 'red',
@@ -120,10 +153,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: '#ffffff',
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
+
+ 
   circle: {
     width: 200,
     height: 200,
@@ -141,7 +176,10 @@ const styles = StyleSheet.create({
     borderRadius: imageWidth / 2, // Para garantir que a imagem seja um círculo
     resizeMode: 'cover',
   },
-  
+  Textobranco: {
+    color: '#FFFFFF', 
+  },
+
 });
 
 export default LoginScreen;
