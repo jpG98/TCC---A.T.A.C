@@ -68,9 +68,8 @@ const LoginScreen = () => {
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
-          <Text style={styles.botaocadastro}>Não Possui Cadastro?</Text>
+          <Text style={styles.botaocadastro} onPress={() => navigation.navigate('Cadastro')}>Não Possui Cadastro?</Text>
 
-          <NavigationContainer><Stack.Screen name="cadastro" component={cadastro}></Stack.Screen> </NavigationContainer>
 
         </View>
       </LinearGradient>
