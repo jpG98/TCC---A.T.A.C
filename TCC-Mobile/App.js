@@ -12,7 +12,7 @@ const windowHeight = Dimensions.get('window').height;
 const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
 const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
 
-const LoginScreen = () => {
+const TeladeLogin = () => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [loginError, setLoginError] = useState(false);
@@ -188,4 +188,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;
+export default TeladeLogin;
