@@ -2,4 +2,4 @@
 projeto de TCC de um aplicativo para avaliação da acessibilidade de comércios.
 
 ```Para rodar o projeto, instale:```
-npm i bootstrap@5.3.3
+```npm i bootstrap@5.3.3```
