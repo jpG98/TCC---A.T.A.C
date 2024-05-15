@@ -12,7 +12,7 @@ const windowHeight = Dimensions.get('window').height;
 const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
 const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
 
-const LoginScreen = () => {
+const TeladeLogin = () => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [loginError, setLoginError] = useState(false);
@@ -68,9 +68,8 @@ const LoginScreen = () => {
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
-          <Text style={styles.botaocadastro}>Não Possui Cadastro?</Text>
+          <Text style={styles.botaocadastro} onPress={() => navigation.navigate('Cadastro')}>Não Possui Cadastro?</Text>
 
-          <NavigationContainer><Stack.Screen name="cadastro" component={cadastro}></Stack.Screen> </NavigationContainer>
 
         </View>
       </LinearGradient>
@@ -189,4 +188,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;
+export default TeladeLogin;

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
-const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
 
-const CadastroScreen = () => {
+const TeladeCadastro = ({ navigation }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -40,9 +38,7 @@ const CadastroScreen = () => {
         colors={['#77B28C', '#F9E9C1']}
         style={styles.background}>
         <View style={styles.overlay}>
-
           <Text style={styles.title}>Crie uma Conta.</Text>
-
           <TextInput
             placeholder="Nome"
             style={[styles.input, nomeError && styles.errorInput]}
@@ -78,6 +74,9 @@ const CadastroScreen = () => {
             <Text style={styles.buttonText}>Cadastrar</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.linkText}>Já tem uma conta? Faça login</Text>
+          </TouchableOpacity>
         </View>
       </LinearGradient>
     </ScrollView>
@@ -88,16 +87,13 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
   },
-  container: {
-    flex: 1,
-  },
   background: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   overlay: {
-    backgroundColor: 'rgba(0,0,0,0.0)', // Adiciona uma opacidade ao fundo
+    backgroundColor: 'rgba(0,0,0,0.0)',
     width: '100%',
     height: '100%',
     justifyContent: 'center',
@@ -139,6 +135,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  linkText: {
+    color: '#007BFF',
+    marginTop: 20,
+  },
 });
 
-export default CadastroScreen;
+export default TeladeCadastro;
