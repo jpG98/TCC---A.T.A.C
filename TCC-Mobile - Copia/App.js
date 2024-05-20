@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Cadastro from './src/telas/cadastro';
+import { createStackNavigator } from '@react-navigation/stack';
+import Cadastro from './src/telas/cadastro'; // Importa a tela de cadastro
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -38,11 +38,16 @@ const TeladeLogin = ({ navigation }) => {
         colors={['#77B28C', '#F9E9C1']}
         style={styles.background}>
         <View style={styles.overlay}>
+          <Image
+            source={require('../TCC-Mobile/assets/logoTCC3.png')}
+            style={styles.image}
+          />
           <Text style={styles.title}>Mude o Mundo.</Text>
           <Text style={styles.subtitle}>Começa por Você.</Text>
           <TextInput
             placeholder="Login"
-            style={[styles.input, loginError && styles.errorInput, styles.Textobranco]}
+            placeholderTextColor="#fff"
+            style={[styles.input, loginError && styles.errorInput]}
             value={login}
             onChangeText={text => {
               setLogin(text);
@@ -52,7 +57,8 @@ const TeladeLogin = ({ navigation }) => {
           {loginError && <Text style={styles.errorText}>Campo obrigatório</Text>}
           <TextInput
             placeholder="Senha"
-            style={[styles.input, senhaError && styles.errorInput, styles.Textobranco]}
+            placeholderTextColor="#fff"
+            style={[styles.input, senhaError && styles.errorInput]}
             secureTextEntry={true}
             value={senha}
             onChangeText={text => {
@@ -67,12 +73,6 @@ const TeladeLogin = ({ navigation }) => {
           <Text style={styles.botaocadastro} onPress={() => navigation.navigate('TeladeCadastro')}>Não Possui Cadastro?</Text>
         </View>
       </LinearGradient>
-      <View style={styles.circle}>
-        <Image
-          source={require('../TCC-Mobile/assets/logoTCC3.png')}
-          style={styles.image}
-        />
-      </View>
     </ScrollView>
   );
 };
