@@ -1,3 +1,4 @@
+<?php include("./blades/top.php")?>
 <nav class="navbar bg-light" aria-label="Light offcanvas navbar">
     <div class="container-fluid">
       <a class="navbar-brand textoz" href="#">Light offcanvas navbar</a>
@@ -28,3 +29,4 @@
       </div>
     </div>
   </nav>
+  <?php include("./blades/footer.php")?>
