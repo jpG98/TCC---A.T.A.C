@@ -1,9 +1,16 @@
 # TCC-A.T.A.C
 projeto de TCC de um aplicativo para avaliação da acessibilidade de comércios.
 
+## Dependências do site
+<hr>
+npm install @mui/material @emotion/react @emotion/styled
+(Link do boostrap está incluído no código)
+<hr>
 
+## Dependências do aplicativo mobile
+<hr>
 instalar bibliotecas mobile - Node.js
-npm install @react-navigation/native
+```npm install @react-navigation/native
 npm install @react-navigation/stack
 npm install @react-navigation/native-stack
 npm install lottie-react-native
@@ -19,7 +26,6 @@ npm install @expo-google-fonts/jost
 npm install expo-app-loading
 npm install expo-updates
 
-npx expo install react-native-reanimated
 npm install react-native-gesture-handler 
 npm install react-native-flash-message
 npm install react-native-circular-progress
@@ -36,8 +42,7 @@ npm install expo-linear-gradient
 mapa
 npm install react-native-maps --save-exact
 npm install expo-location
-npm install --save expo-permissions
+npm install --save expo-permissions```
 
 
-```Para rodar o projeto, instale:```<br>
-```npm i bootstrap@5.3.3```
+
