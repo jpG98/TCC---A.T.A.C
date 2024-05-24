@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions, ScrollView,Stack } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import Cadastro from './src/telas/cadastro'; // Importa a tela de cadastro
+import { NavigationContainer } from '@react-navigation/native';
+
+
+import cadastro from './src/telas/cadastro';
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const imageWidth = windowWidth * 0.5;
-const imageHeight = windowHeight * 0.3;
+const imageWidth = windowWidth * 0.5; // Defina a largura da imagem como metade da largura da tela
+const imageHeight = windowHeight * 0.3; // Defina a altura da imagem como metade da altura da tela
 
-const Stack = createStackNavigator();
 
-const TeladeLogin = ({ navigation }) => {
+const TeladeLogin = () => {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [loginError, setLoginError] = useState(false);
   const [senhaError, setSenhaError] = useState(false);
-
+  
+  
+  
   const handleLogin = () => {
     if (!login.trim()) {
       setLoginError(true);
@@ -32,22 +37,18 @@ const TeladeLogin = ({ navigation }) => {
     console.log('Senha:', senha);
   };
 
+
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <LinearGradient
         colors={['#77B28C', '#F9E9C1']}
         style={styles.background}>
         <View style={styles.overlay}>
-          <Image
-            source={require('../TCC-Mobile/assets/logoTCC3.png')}
-            style={styles.image}
-          />
           <Text style={styles.title}>Mude o Mundo.</Text>
           <Text style={styles.subtitle}>Começa por Você.</Text>
           <TextInput
             placeholder="Login"
-            placeholderTextColor="#fff"
-            style={[styles.input, loginError && styles.errorInput]}
+            style={[styles.input, loginError && styles.errorInput, styles.Textobranco]} // Adicionando estilo para o texto branco
             value={login}
             onChangeText={text => {
               setLogin(text);
@@ -57,8 +58,7 @@ const TeladeLogin = ({ navigation }) => {
           {loginError && <Text style={styles.errorText}>Campo obrigatório</Text>}
           <TextInput
             placeholder="Senha"
-            placeholderTextColor="#fff"
-            style={[styles.input, senhaError && styles.errorInput]}
+            style={[styles.input, senhaError && styles.errorInput, styles.Textobranco]} // Adicionando estilo para o texto branco
             secureTextEntry={true}
             value={senha}
             onChangeText={text => {
@@ -70,9 +70,15 @@ const TeladeLogin = ({ navigation }) => {
           <TouchableOpacity style={styles.buttonEntrar} onPress={handleLogin}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
-          <Text style={styles.botaocadastro} onPress={() => navigation.navigate('TeladeCadastro')}>Não Possui Cadastro?</Text>
+          <Text style={styles.botaocadastro} onPress={() => navigation.navigate('Cadastro')}>Não Possui Cadastro?</Text>
         </View>
       </LinearGradient>
+      <View style={styles.circle}>
+        <Image
+          source={require('../TCC-Mobile/assets/logoTCC3.png')} // logo 
+          style={styles.image}
+        />
+      </View>
     </ScrollView>
   );
 };
@@ -90,30 +96,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   overlay: {
+    backgroundColor: 'rgba(0,0,0,0.0)', // Adiciona uma opacidade ao fundo
     width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
+  title: {//titulo
     fontSize: 30,
     fontWeight: 'bold',
     color: 'rgba(1,1,1,0.4)',
     marginBottom: 3,
   },
-  subtitle: {
+  subtitle: { //subtitulo
     fontSize: 23,
     fontWeight: 'bold',
     color: 'rgba(1,1,1,0.4)',
     marginBottom: 20,
   },
-  botaocadastro: {
+  botaocadastro: { //subtitulo
     fontSize: 14,
     fontWeight: 'bold',
     color: 'rgba(1,1,1,0.4)',
     marginTop: 9,
   },
-  buttonEntrar: {
+  buttonEntrar: { //subtitulo
     width: '40%',
     height: 40,
     backgroundColor: 'rgba(1,1,1,0.4)',
@@ -138,31 +145,40 @@ const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
+  button: {
+    width: '80%',
+    height: 40,
+    backgroundColor: 'rgba(1,1,1,0.4)',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   buttonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
+ 
   circle: {
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: 'rgba(1,1,1,0.4)',
+    backgroundColor: 'rgba(1,1,1,0.4))', // Cor do círculo com opacidade de 30%
     position: 'absolute',
-    top: '20%',
-    left: '50%',
-    marginTop: -100,
-    marginLeft: -100,
+    top: '20%', // Posiciona o círculo no meio verticalmente
+    left: '50%', // Posiciona o círculo no meio horizontalmente
+    marginTop: -100, // Ajusta a margem superior para centralizar
+    marginLeft: -100, // Ajusta a margem esquerda para centralizar
   },
   image: {
     width: imageWidth,
     height: imageHeight,
-    borderRadius: imageWidth / 2,
+    borderRadius: imageWidth / 2, // Para garantir que a imagem seja um círculo
     resizeMode: 'cover',
   },
   Textobranco: {
-    color: '#FFFFFF',
+    color: '#FFFFFF', 
   },
-});
 
+});
 export default TeladeLogin;
