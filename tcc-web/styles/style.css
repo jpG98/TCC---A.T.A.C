@@ -1,0 +1,255 @@
+/*Estilo GERAL*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+}
+
+body{
+    background-color: #98CCAB;
+    color: white;
+    font-family: poppinsregular;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/*Estilo do Header*/
+
+header{
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 0.5rem 1rem #5f9271;
+    background-color: #77B28C;
+}
+
+header > .navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+header nav ul{
+    list-style-type: none;
+    margin: 0 70px;
+}
+
+header a{
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover{
+    transition: 0.3s all;
+    transform: scale(1.05);
+}
+
+header nav ul li{
+    display: inline-block;
+    margin:  0 15px;
+    width: 138px;
+    font-size: 1.5rem;
+}
+
+header .logo{
+    font-size: 2.5rem;
+}
+
+.img img{
+    width: 100%;
+
+}
+
+
+/*Inicio*/
+
+section.inicio{
+    padding: 80px 0px;
+}
+
+section.inicio .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.inicio.txt-inicio h1{
+    font-size: 42px;
+    line-height: 40px;
+}
+
+.inicio .txt-inicio p{
+    margin: 40px 0;
+    font-size: 1.3rem;
+}
+
+ .img-inicio img{
+    width: 600px;
+    border-radius: 25px;
+}
+
+/*faixa*/
+
+.faixa{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(#98CCAB, #417554);
+}
+
+.faixa2{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(#417554, #98CCAB);
+}
+
+.funto2{
+    width: 100%;
+    background-color: #417554;
+}
+
+/*Projeto*/
+
+section .projeto{
+    padding: 80px 0px;
+}
+
+section .projeto .interface .flex{
+    gap: 30px;
+}
+
+.img-cel img{
+    width: 300px;
+    border-radius: 25px;
+}
+
+.projeto .txt-projeto h1{
+    font-size: 42px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.projeto .txt-projeto p{
+    max-width: 500px;
+    margin: 40px 0;
+    font-size: 1.3rem;
+}
+
+.img-projeto img{
+    width: 350px;
+    border-radius: 25px;
+}
+
+.separo .img-projeto{
+    padding: 20px 0 ;
+    border-radius: 25px;
+}
+
+/*app*/
+
+section .app{
+    padding: 80px 0px;
+}
+
+section .app .interface .flex{
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.app .txt-app h1{
+    font-size: 42px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.app .txt-app p{
+    max-width: 500px;
+    margin: 40px 0;
+    font-size: 1.3rem;
+}
+
+.QRcode img{
+    width: 400px;
+}
+
+/*integrantes*/
+
+section .integrantes{
+    padding: 80px 0px;
+}
+
+.interface h2{
+    font-size: 42px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.integrantes-box{
+    background-color: #417554;
+    width: 400px;
+    border-radius: 25px;
+}
+
+.integrantes-box h3{
+    text-align: center;
+    
+}
+
+
+.img-fundo img{
+    width: 400px;
+    border-radius: 25px 25px 0px 0;
+}
+
+.interface .flex1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+
+#footer_social_media {
+    display: flex;
+    margin: 10px;
+} 
+
+.footer-link {
+    text-decoration: none;
+}
+
+#footer_social_media .footer-link {
+    height: 25px;
+    width: 25px;
+    margin:  0 10px;
+    color: var(--color-neutral-40);
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+#footer_social_media .footer-link i {
+    font-size: 1.25rem;    
+}
+
+#footer_social_media .footer-link:hover {
+    opacity: 0.8;
+}
+
+.integrantes-rede-social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
